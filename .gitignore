@@ -32,4 +32,12 @@ core
 __data__
 *.pyc
 *.egg-info
-.png
+
+# Dataset
+A/
+
+# Model Path
+examples/dreambooth/style/
+
+# Output Path
+examples/dreambooth/output/
