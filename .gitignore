@@ -34,7 +34,7 @@ __data__
 *.egg-info
 
 # Dataset
-A/
+A/*/images
 
 # Model Path
 examples/dreambooth/style/
