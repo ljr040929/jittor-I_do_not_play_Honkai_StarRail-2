@@ -2,7 +2,7 @@
 export HF_ENDPOINT="https://hf-mirror.com"
 
 MODEL_NAME="stabilityai/stable-diffusion-2-1"
-BASE_INSTANCE_DIR="/mnt/d/graphics/jittor/A"
+BASE_INSTANCE_DIR="../../A"
 OUTPUT_DIR_PREFIX="style/style_"
 RESOLUTION=512
 TRAIN_BATCH_SIZE=1

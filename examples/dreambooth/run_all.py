@@ -3,7 +3,7 @@ import json, os, tqdm, torch
 from JDiffusion.pipelines import StableDiffusionPipeline
 
 max_num = 15
-dataset_root = "the-path-to-dataset"
+dataset_root = "../../A"
 
 with torch.no_grad():
     for tempid in tqdm.tqdm(range(0, max_num)):
