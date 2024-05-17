@@ -3,18 +3,20 @@ export HF_ENDPOINT="https://hf-mirror.com"
 
 MODEL_NAME="stabilityai/stable-diffusion-2-1"
 BASE_INSTANCE_DIR="../../A"
-OUTPUT_DIR_PREFIX="style/style_"
+OUTPUT_DIR_PREFIX="style_high_rank/style_"
 RESOLUTION=512
 TRAIN_BATCH_SIZE=1
 GRADIENT_ACCUMULATION_STEPS=1
 CHECKPOINTING_STEPS=500
 LEARNING_RATE=1e-4
-LR_SCHEDULER="constant"
-LR_WARMUP_STEPS=0
+LR_SCHEDULER="cosine"
+LR_WARMUP_STEPS=50
 MAX_TRAIN_STEPS=500
 SEED=0
 GPU_COUNT=1
 MAX_NUM=14
+
+LORA_RANK=20
 
 for ((folder_number = 0; folder_number <= $MAX_NUM; folder_number+=$GPU_COUNT)); do
     for ((gpu_id = 0; gpu_id < GPU_COUNT; gpu_id++)); do
@@ -39,7 +41,8 @@ for ((folder_number = 0; folder_number <= $MAX_NUM; folder_number+=$GPU_COUNT));
             --lr_scheduler=$LR_SCHEDULER \
             --lr_warmup_steps=$LR_WARMUP_STEPS \
             --max_train_steps=$MAX_TRAIN_STEPS \
-            --seed=$SEED"
+            --seed=$SEED \
+            --rank=$LORA_RANK"
 
         eval $COMMAND &
         sleep 3

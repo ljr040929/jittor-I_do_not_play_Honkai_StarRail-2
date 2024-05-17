@@ -13,6 +13,7 @@ perf.data.old
 *.zip
 *.tgz
 *.obj
+*.log
 test.py
 extern/mkl/mkldnn_lnx*/*
 data/
@@ -38,6 +39,10 @@ A/*/images
 
 # Model Path
 examples/dreambooth/style/
+examples/dreambooth/style_new/
+examples/dreambooth/style_high_rank/
 
 # Output Path
-examples/dreambooth/output/
+examples/dreambooth/output_lowrank
+examples/dreambooth/output_lowrank_prompt
+examples/dreambooth/output_highrank_prompt
