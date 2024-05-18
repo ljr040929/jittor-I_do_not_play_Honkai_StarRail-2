@@ -38,11 +38,7 @@ __data__
 A/*/images
 
 # Model Path
-examples/dreambooth/style/
-examples/dreambooth/style_new/
-examples/dreambooth/style_high_rank/
+examples/dreambooth/style
 
 # Output Path
-examples/dreambooth/output_lowrank
-examples/dreambooth/output_lowrank_prompt
-examples/dreambooth/output_highrank_prompt
+examples/dreambooth/output
