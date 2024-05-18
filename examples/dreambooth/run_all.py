@@ -4,8 +4,8 @@ from JDiffusion.pipelines import StableDiffusionPipeline
 
 max_num = 15
 dataset_root = "../../A"
-style_path = "./style"
-output_path = "./output_highrank_prompt"
+style_path = "./style/style_r32_alpha32"
+output_path = "./output/output_r32_alpha32_prompt"
 
 with torch.no_grad():
     for tempid in tqdm.tqdm(range(0, max_num)):
@@ -20,6 +20,6 @@ with torch.no_grad():
         style_prompt = prompts["style"]
         for id, caption in prompts["caption"].items():
             print(caption)
-            image = pipe(f"Generate an image of a {caption} in the style of {style_prompt}", num_inference_steps=50, width=512, height=512, negative_prompt="low quality, blurry, unfinished").images[0]
+            image = pipe(f"Image of a {caption} in the style of {style_prompt}", num_inference_steps=50, width=512, height=512, negative_prompt="low quality, blurry, unfinished").images[0]
             os.makedirs(f"{output_path}/{taskid}", exist_ok=True)
             image.save(f"{output_path}/{taskid}/{caption}.png")
