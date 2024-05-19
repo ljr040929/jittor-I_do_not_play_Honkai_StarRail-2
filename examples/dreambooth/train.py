@@ -459,6 +459,7 @@ def encode_prompt(text_encoder, input_ids, attention_mask, text_encoder_use_atte
 
 
 def main(args):
+    print("Instance prompt:", args.instance_prompt)
     jt.flags.use_cuda = 1
     # Make one log on every process with the configuration for debugging.
     logging.basicConfig(

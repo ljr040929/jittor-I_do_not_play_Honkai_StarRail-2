@@ -3,7 +3,7 @@ export HF_ENDPOINT="https://hf-mirror.com"
 
 MODEL_NAME="stabilityai/stable-diffusion-2-1"
 BASE_INSTANCE_DIR="../../A"
-OUTPUT_DIR_PREFIX="style/style_r32_alpha32/style_"
+OUTPUT_DIR_PREFIX="style/style_newprompt_r32_alpha32/style_"
 RESOLUTION=512
 TRAIN_BATCH_SIZE=1
 GRADIENT_ACCUMULATION_STEPS=1
@@ -27,7 +27,8 @@ for ((folder_number = 0; folder_number <= $MAX_NUM; folder_number+=$GPU_COUNT));
         INSTANCE_DIR="${BASE_INSTANCE_DIR}/$(printf "%02d" $current_folder_number)/images"
         OUTPUT_DIR="${OUTPUT_DIR_PREFIX}$(printf "%02d" $current_folder_number)"
         CUDA_VISIBLE_DEVICES=$gpu_id
-        PROMPT=$(printf "style_%02d" $current_folder_number)
+        PROMPT_DIR="${BASE_INSTANCE_DIR}/$(printf "%02d" $current_folder_number)"
+        PROMPT=$(jq '.style' "$PROMPT_DIR/prompt_new.json")
 
         COMMAND="CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES python train.py \
             --pretrained_model_name_or_path=$MODEL_NAME \
