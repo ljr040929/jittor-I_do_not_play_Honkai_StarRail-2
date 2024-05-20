@@ -3,7 +3,7 @@ export HF_ENDPOINT="https://hf-mirror.com"
 
 MODEL_NAME="stabilityai/stable-diffusion-2-1"
 BASE_INSTANCE_DIR="../../A"
-OUTPUT_DIR_PREFIX="style/style_newprompt_r32_alpha32/style_"
+OUTPUT_DIR_PREFIX="style/style_newprompt/style_"
 RESOLUTION=512
 TRAIN_BATCH_SIZE=1
 GRADIENT_ACCUMULATION_STEPS=1
@@ -13,7 +13,7 @@ LR_SCHEDULER="cosine"
 LR_WARMUP_STEPS=100
 MAX_TRAIN_STEPS=600
 SEED=0
-GPU_COUNT=2
+GPU_COUNT=1
 MAX_NUM=14
 
 LORA_RANK=32

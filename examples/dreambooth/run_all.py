@@ -4,8 +4,8 @@ from JDiffusion.pipelines import StableDiffusionPipeline
 
 max_num = 15
 dataset_root = "../../A"
-style_path = "./style/style_newprompt_r32_alpha32"
-output_path = "./output/output_naiveinstanceprompt_r32_alpha32_prompt"
+style_path = "./style/style_newprompt"
+output_path = "./output/output_naiveinstanceprompt"
 
 with torch.no_grad():
     for tempid in tqdm.tqdm(range(0, max_num)):
