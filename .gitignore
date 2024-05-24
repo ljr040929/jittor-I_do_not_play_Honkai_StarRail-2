@@ -37,6 +37,7 @@ __data__
 # Dataset
 A/*/images
 A/*/object
+A/*/objects
 
 # Model Path
 examples/dreambooth/style
