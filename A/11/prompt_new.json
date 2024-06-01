@@ -1,5 +1,6 @@
 {
-    "style": "realistic, stylized appearance, gray and brown, stone sculpture",
+    "style": "stone sculpture, realistic, stylized appearance, gray and brown",
+    "class": "stone sculpture",
     "caption": {
         "0": "Ball",
         "1": "Museum",

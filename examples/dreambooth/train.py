@@ -345,7 +345,8 @@ class DreamBoothDataset(Dataset):
 
     def __getitem__(self, index):
         example = {}
-        instance_image = Image.open(self.instance_images_path[index % self.num_instance_images])
+        image_path = self.instance_images_path[index % self.num_instance_images]
+        instance_image = Image.open(image_path)
         instance_image = exif_transpose(instance_image)
 
         if not instance_image.mode == "RGB":
@@ -355,8 +356,9 @@ class DreamBoothDataset(Dataset):
         if self.encoder_hidden_states is not None:
             example["instance_prompt_ids"] = self.encoder_hidden_states
         else:
+            prompt = f"Image of a {image_path.name[:-4]} in the style of {self.instance_prompt}"
             text_inputs = tokenize_prompt(
-                self.tokenizer, self.instance_prompt, tokenizer_max_length=self.tokenizer_max_length
+                self.tokenizer, prompt, tokenizer_max_length=self.tokenizer_max_length
             )
             example["instance_prompt_ids"] = text_inputs.input_ids
             example["instance_attention_mask"] = text_inputs.attention_mask

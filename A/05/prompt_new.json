@@ -1,5 +1,6 @@
 {
-    "style": "recognizable, mosaic art, small colorful tiles, pure white background",
+    "style": "mosaic art, colorful, small tiles, pure white background",
+    "class": "mosaic art",
     "caption": {
         "0": "Cafe",
         "1": "Swan",
